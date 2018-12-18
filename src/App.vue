@@ -4,94 +4,94 @@
       Introduction
 
       slide
-        h3 Pattern recognition system (PRS)
+        h3 Системы распознавания образов (PRS)
         p.
-          A pattern recognition system (PRS) is an automatic system
-          that aims at classifying the input pattern into a specific class
+          PRS - это автоматическая система, которая направлена на
+          классификацию объектов по нескольким категориям или классам
 
       slide
-        h3 Tasks
+        h3 Задачи
         ul
           li.
-            the analysis (or description) that extracts
-            the characteristics from the pattern being studied
+            извлечение признаков из образцов (образов)
           li.
-            the classification (or recognition) that enables
-            us to recognise an object (or a pattern) by using  
-            some characteristics derived from the first task
+            классификация (или распознавание) на основе признаков
+
+      slide(:steps=7)
+        h3 Образец
+        ul
+          li(v-if='step > 1') пиксель на изображении
+          li(v-if='step > 2') 2D или 3D фигура
+          li(v-if='step > 3') рукописный символ
+          li(v-if='step > 4') походка человека
+          li(v-if='step > 5') жест
+          li(v-if='step > 6') отпечаток пальца и т.д.
 
       slide
-        h3 The classification scheme
-        p.
-          Based on the availability of the training set that is a set 
-          of  patterns  already  having  been  classified
+        h3 Признаки
+        p некоторое количественное измерение
       
-      slide
-        h3 Learning strategies
+      slide(:steps=3)
+        h3 Стратегии обучения
         ul
-          li supervised learning
-          li unsupervised learning
-        
-        // TODO: refactor the notes of speaker
-        // TODO: the size of notes is too long
-        p(v-if="parentWindow").
-          A learning strategy is said to be unsupervised
-          if for the system is not given an a priori information about classes;
-          it establishes the classes itself based on the regularities of the features.
-        p(v-if="parentWindow").
-          Features are those measurements which are extracted
-          from a pattern to represent it in the features space.
-          In other words, pattern analysis enables us
-          to use some features to describe and represent it  
-          instead of using the pattern itself.
-          Also called characteristics, attributes or signatures
-          the recognition efficiency and reliability
-          are dependent on their choice
+          li(v-if='step > 1') с обучением
+          li(v-if='step > 2') без обучения
 
       slide
-        h3 Major methodologies in PRS
+        h3 Основные методологии в PRS
         ul
-          li statistical approach
-          li syntactic approach  
-          li template matching
-          li neural networks
+          li статистический подход
+          li синтаксический подход  
+          li сопоставление с шаблоном
+          li нейронные сети
 
       slide
-        h3 Statistical approach
+        h3 Статистический подход
         ul
-          li based on statistics and probabilities
+          li основывается на статистике и вычислении вероятностей
           li.
-            features  are  converted  to  numbers
-            which  are  placed  into  a  vector
-            to  represent  the  pattern
+            обычно признаки представлены в виде векторов
           li.
-            is most intensively used in practice
-            because it is the simplest to handle
-        
-        p(v-if="parentWindow").
-          In this approach, patterns to be classified are represented
-          by a set of features defining a specific multidimensional vector
-          : by doing so, each pattern is represented by a point
-          in the multidimensional features space.
-          To compare patterns, this approach uses measures by  
-          observing distances between points in this statistical space.
-          For more details and deeper considerations on this approach,
-          one can refer to (Jain, 2000) that presents a review of  
-          statistical pattern recognition approaches
+            наиболее интенсивно используется на практике,
+            потому что это самый простой в обращении
 
       slide
-        h3 Syntactic approach (aka structural PRSs)
+        h3 Синтаксический подход (стурктурный)
         ul
-          li based on the relation between features
-          li patterns are represented by structures
           li.
-            patterns are described in hierarchical structure
-            composed of sub-structures composed themselves of smaller sub-structur
- 
-        p(v-if="parentWindow").
-          Patterns which can take into account more complex 
-          relations between features than numerical   
-          feature vectors used in statistical PRS
+            предложен для того, чтобы представлять иерархическую информацию,
+            содержащуюся в каждом образе
+          li.
+            образ описывается при помощи более простых подобразов
+
+      slide
+        h3 Cопоставление с шаблоном
+        ul
+          li.
+            широко используется при обработке изображений
+            для локализации и идентификации формы в изображении
+          li.
+            ищутся части изображения, которые соответствуют образцу
+
+      slide
+        h3 Нейронные сети
+        ul
+          li.
+            требуетогромного количества примеров задачи распознавания
+          li.
+            высокая эффективность и производительность
+
+      slide(:steps=4)
+        h3 OpenCV
+        ul
+          li(v-if='step > 1').
+           одна из самых популярных библиотек компьютерного зрения
+          li(v-if='step > 2') включает более 1000 функций и алгоритмов
+          li(v-if='step > 3') самая большая библиотека по широте тематики
+
+      slide
+        h3 Обычное приложение с OpenCV
+        img(src="./assets/open-cv-apps.jpg").center
 
 </template>
 
@@ -149,5 +149,20 @@ html {
     max-width: 80%;
     margin: 0 auto;
   }
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+img {
+  border-color: #27292b28;
+  border-width: 0.05em;
+  border-style: solid;
+  border-radius: 0.05em;
+  box-shadow: 0.1em 0.1em 0.5em #27292b7a;
 }
 </style>

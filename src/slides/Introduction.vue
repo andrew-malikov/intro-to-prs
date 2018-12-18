@@ -7,8 +7,8 @@
           HorizontalSpacer
           .author
             p Выполнил
-            p Маликов А.А
             p Студент 15ФИИТ(ба)ОП
+            p Маликов А.А
 </template>
 
 <script lang="ts">
